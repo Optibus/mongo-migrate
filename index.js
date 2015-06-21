@@ -134,7 +134,7 @@ function runMongoMigrate(direction, migrationEnd, next) {
 
 		var migrationsToRun = fs.readdirSync('migrations')
 			.filter(function (file) {
-				var formatCorrect = file.match(/^\d+.*\.js$/),
+				var formatCorrect = file.match(/^\d+.*\.coffee$/),
 					migrationNum = formatCorrect && parseInt(file.match(/^\d+/)[0], 10),
 					isRunnable = formatCorrect && isDirectionUp ? migrationNum > lastMigrationNum : migrationNum <= lastMigrationNum;
 
